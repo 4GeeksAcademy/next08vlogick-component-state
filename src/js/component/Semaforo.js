@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Semaforo() {
+  const [color, setColor] = useState("red");
+
   return (
     <div className="top-50 start-50">
       <div
@@ -8,16 +10,26 @@ function Semaforo() {
         className="bg-black rounded position-absolute start-50 top-50 translate-middle border border-danger-"
       >
         <div
-          id="red"
-          className="rounded-circle  btn btn-danger me-5"
+          className={`red semaforo rounded-circle btn btn-danger me-5 ${
+            color === "red" && "active"
+          }`}
           type="button"
+          onClick={() => setColor("red")}
         ></div>
         <div
-          id="red"
-          className="rounded-circle btn btn-warning me-5"
+          className={`yellow semaforo rounded-circle btn btn-warning me-5 ${
+            color === "yellow" && "active"
+          }`}
           type="button"
+          onClick={() => setColor("yellow")}
         ></div>
-        <div id="red" className="rounded-circle btn btn-success me-5"></div>
+        <div
+          className={`green semaforo rounded-circle btn btn-success me-5 ${
+            color === "green" && "active"
+          }`}
+          type="button"
+          onClick={() => setColor("green")}
+        ></div>
       </div>
     </div>
   );
